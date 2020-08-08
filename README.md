@@ -1,4 +1,4 @@
-# Hi there 👋😄 I' Gleethos, a.k.a. Daniel! #
+# Hi there 👋😄 I'm Gleethos, a.k.a. Daniel! #
 
 - :microscope: I’m a computer science student at the University of Applied Sciences Technikum in Vienna!
 - 🌱 I’m currently learning deep stuff...
