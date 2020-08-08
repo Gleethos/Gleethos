@@ -16,4 +16,4 @@
 
 - I wrote my own tensor library called [neureka](https://github.com/Gleethos/neureka) from scratch! 🔭
 - I wrote a simple web server called arachni!
-- I implementing a simple foveated rendering example with OpenGL and C++. 
+- I implemented a simple foveated rendering example with OpenGL and C++. 
