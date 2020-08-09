@@ -10,7 +10,11 @@ Welcome to my GitHub profile readme!
 - 📫 How to reach me: gleethos@gmx.at
 - ⚡ Fun fact: I like programming! ^^
 
+---
+
 [![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Gleethos)](https://github.com/anuraghazra/github-readme-stats)
+
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gleethos" /> 
 
 ---
 
