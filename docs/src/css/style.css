@@ -22,6 +22,22 @@
         width: 100%
     }
 
+    .DynamicPillarWidth {
+        width:100%;
+        text-align: center;
+    }
+
+    .DynamicPillarWidth li{
+        background-color: #00b9d3;
+        background: #00b9d3; /* Old browsers */
+        background: -moz-linear-gradient(   top, rgba(0,0,0,0) 0%, rgba(0, 185, 211, 1) 25%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0, 185, 211, 1) 25%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(  to bottom, rgba(0,0,0,0) 0%, rgba(0, 185, 211, 1) 25%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b9d3', endColorstr='#95c996', GradientType=0); /* IE6-9 */
+        border-bottom-right-radius: 2em;
+        font-size: 25px;
+    }
+
     .FloatsUp {
         top: -4em;
     }
@@ -49,6 +65,10 @@
 
     .DynamicWidth {
         width: 90%
+    }
+
+    .DynamicPillarWidth {
+        width:25%;
     }
 
     .FloatsUp {
@@ -80,6 +100,10 @@
         width: 80%
     }
 
+    .DynamicPillarWidth {
+        width:20%;
+    }
+
     .FloatsUp {
         top: -2em;
     }
@@ -107,6 +131,10 @@
 
     .DynamicWidth {
         width: 66%
+    }
+
+    .DynamicPillarWidth {
+        width:15%;
     }
 
     .FloatsUp {
@@ -276,7 +304,6 @@ main {
 }
 
 #navi {
-    width: 70%;
     float: left;
     position: fixed;
     margin-left: 0;
@@ -604,17 +631,17 @@ footer ul {
 }
 
 .gaadiexp {
+    position:relative;
     cursor: pointer;
     height: 4.75em;
     margin-bottom: 0;
     margin-left: 0;
-    width: 4.5em;
+    min-width: 4.5em;
     border-radius: 0 0 40px 0;
     padding-right: 20px;
     z-index: 9001;
-    left: 0px;
+    float: left;
     overflow: hidden;
-    position: fixed;
     background: #000000; /* Old browsers */
     background: -moz-linear-gradient(top, #000f23 0%, #a8d2ff  99%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #000f23 0%, #a8d2ff  99%); /* Chrome10-25,Safari5.1-6 */
@@ -710,21 +737,17 @@ footer ul {
 }
 
 .gaadiexp-check:checked + .gaadiexp {
-    width: 14em;
-    min-width: 6em;
+    width: 100%;
     border-radius: 0px 0px 6em 0em;
 }
 
 .gaadiexp-check:checked + .gaadiexp:after {
+    top: 19px;
     bottom: 18px;
     content: 'Menu';
-    font-size: 20px;
-    padding-left: 30px;
-}
-
-#navi {
-    width: 50%;
-    float: left;
+    font-size: 25px;
+    padding-left: 0px;
+    left:-20px;
 }
 
 #mobile-nav {
@@ -736,8 +759,8 @@ footer ul {
 .header-nav ul li a:focus,
 .header-nav ul li a:hover
 {
-    background: #000000; /* Old browsers */
-    background: -moz-linear-gradient(   top, rgba(0,0,0,0) 0%, rgba(50,200,200,0.3) 25%); /* FF3.6-15 */
+    background: #32C8C8; /* Old browsers */
+    background: -moz-linear-gradient(   top, rgba(0,0,0,0) 0%, rgba(50, 200, 200, 0.3) 25%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(50,200,200,0.3) 25%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(  to bottom, rgba(0,0,0,0) 0%, rgba(50,200,200,0.3) 25%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#95c996', GradientType=0); /* IE6-9 */
@@ -768,21 +791,20 @@ footer ul {
 }
 
 .header-nav {
-	padding-top: 3em;
     float: left;
-    height: 5em;
-    position: absolute;
-    width: 50%;
+    width: 100%;
     left: 0px;
+    font-size:18px;
 }
 
 .header-nav ul {
+    top:0;
     background: #fff;
     height: calc(100vh - 0px);
     list-style: none;
     margin: 0;
     overflow-y: auto;
-    padding: 1.75em 0 0 0;
+    padding: 5.75em 0 0 0;
     position: absolute;
     -webkit-transform: translateX(-110%);
     transform: translateX(-110%);
@@ -790,9 +812,9 @@ footer ul {
     -moz-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
     -o-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
     transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    width: 200px;
+    width: 100%;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.075);
-    z-index: 1;
+    z-index: -1;
     left: -1px;
 }
 
@@ -820,7 +842,6 @@ footer ul {
     text-shadow: 1px 0 #070088;
     display: block;
     float: left;
-    font-size: 17px;
     font-weight: 400;
     letter-spacing: 0.75px;
     line-height: 24px;

@@ -41,11 +41,13 @@
         function animateTop( modifier ) {
             let sig = 1-modifier;
             let newTop = sig*65+5;
-            $('.gaadiexp').animate({top:0}, 500);
+            let inverse = modifier*65;
+            $('#navbar_menu').animate({top:newTop-10}, 300);
             $('#top_most_nav_bar').animate({top: newTop-70}, 455+modifier*355);
 			$('.TopBarGradient').animate({top: -30*(1-sig)}, 455+modifier*355);
-            $('.side-nav').animate({top:50+((1-sig)*60)}, 130);
-            $('#navbar_menu').animate({top:newTop-10}, 300);
+
+            $('.gaadiexp').animate({top:inverse}, 400-sig*375);
+            $('.side-nav').animate({top:inverse}, 400-sig*375);
         }
     </script>
 </head>
@@ -83,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div id="navi">
+            <div id="navi" class="DynamicPillarWidth">
                 <input type="checkbox" name="mobile-nav" id="mobile-nav" class="gaadiexp-check" onchange="this.blur()">
                 <label for="mobile-nav" class="gaadiexp white" tabindex="0"
                        style="margin-left: 0;"><span></span></label>
