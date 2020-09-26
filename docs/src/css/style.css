@@ -24,6 +24,7 @@
 
     .DynamicPillarWidth {
         width:100%;
+        height: 0%;
         text-align: center;
     }
 
@@ -38,10 +39,6 @@
         font-size: 25px;
     }
 
-    .FloatsUp {
-        z-index : 100;
-        top: -4em;
-    }
 }
 
 /*---*/
@@ -72,10 +69,6 @@
         width:25%;
     }
 
-    .FloatsUp {
-        z-index : 100;
-        top: -3em;
-    }
 }
 
 /*---*/
@@ -106,10 +99,6 @@
         width:20%;
     }
 
-    .FloatsUp {
-        z-index : 100;
-        top: -2em;
-    }
 }
 
 /*---*/
@@ -140,10 +129,6 @@
         width:15%;
     }
 
-    .FloatsUp {
-        z-index : 100;
-        top: 0em;
-    }
 }
 
 /*---*/
@@ -158,7 +143,12 @@
     }
 }
 
+
 /*---*/
+
+.FloatsUp {
+    z-index : 100;
+}
 
 /*Main css Formating:*/
 body {
