@@ -39,6 +39,7 @@
     }
 
     .FloatsUp {
+        z-index : 100;
         top: -4em;
     }
 }
@@ -72,6 +73,7 @@
     }
 
     .FloatsUp {
+        z-index : 100;
         top: -3em;
     }
 }
@@ -105,6 +107,7 @@
     }
 
     .FloatsUp {
+        z-index : 100;
         top: -2em;
     }
 }
@@ -138,6 +141,7 @@
     }
 
     .FloatsUp {
+        z-index : 100;
         top: 0em;
     }
 }
@@ -230,7 +234,6 @@ main {
 
 #top_most_nav_bar {
     background-color: black;
-    z-index: 100;
     width: 100%;
     height: 5.0em;
     position: fixed;
@@ -527,7 +530,6 @@ video {
 	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     background-color: blue;
-    z-index: 0;
     position: relative;
     padding-bottom: 0.5em;
     background: #000000; /* Old browsers */
@@ -639,7 +641,6 @@ footer ul {
     min-width: 4.5em;
     border-radius: 0 0 40px 0;
     padding-right: 20px;
-    z-index: 9001;
     float: left;
     overflow: hidden;
     background: #000000; /* Old browsers */
@@ -786,7 +787,6 @@ footer ul {
 .fixed-nav {
     height: 2em;
     width: 100%;
-    z-index: 9000;
     left: 0px;
 }
 
@@ -814,8 +814,8 @@ footer ul {
     transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
     width: 100%;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.075);
-    z-index: -1;
     left: -1px;
+    z-index: -1;
 }
 
 .header-nav ul {

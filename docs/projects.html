@@ -41,47 +41,46 @@
         function animateTop( modifier ) {
             let sig = 1-modifier;
             let newTop = sig*65+5;
-            let inverse = modifier*65;
             $('#navbar_menu').animate({top:newTop-10}, 300);
             $('#top_most_nav_bar').animate({top: newTop-70}, 455+modifier*355);
 			$('.TopBarGradient').animate({top: -30*(1-sig)}, 455+modifier*355);
 
-            $('.gaadiexp').animate({top:inverse}, 400-sig*375);
-            $('.side-nav').animate({top:inverse}, 400-sig*375);
         }
     </script>
 </head>
 <body>
 <div id="header">
     <div id="NetBox" class="MainFrame">
-        <nav class="" id="top_most_nav_bar">
-            <div id="navigation_container" class="">
-                <div style="" class="TopBarGradient DynamicWidth">
+        <nav class="FloatsUp">
+            <div id="top_most_nav_bar">
+                <div id="navigation_container" class="">
                     <div style="" class="TopBarGradient DynamicWidth">
-						<div style="" class="TopBarGradient DynamicWidth">
-							<div class="pull-right" id="navbar_menu">
-								<ul class="nav navbar-right" id="navbar_list">
-									<li>
-										<a href="index.html">
-											<img src="src/img/icons/house.png">
-											About Me
-										</a>
-									</li>
-									<li>
-										<a href="https://github.com/Gleethos/neureka">
-											<img src="src/img/icons/github-logo.png">
-											Github
-										</a>
-									</li>
-									<li>
-										<a class="ScrollToBottomAction" >
-											<img src="src/img/icons/cogwheel.png">
-                                            Contact
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>	
+                        <div style="" class="TopBarGradient DynamicWidth">
+                            <div style="" class="TopBarGradient DynamicWidth">
+                                <div class="pull-right" id="navbar_menu">
+                                    <ul class="nav navbar-right" id="navbar_list">
+                                        <li>
+                                            <a href="index.html">
+                                                <img src="src/img/icons/house.png">
+                                                About Me
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://github.com/Gleethos/neureka">
+                                                <img src="src/img/icons/github-logo.png">
+                                                Github
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="ScrollToBottomAction" >
+                                                <img src="src/img/icons/cogwheel.png">
+                                                Contact
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
