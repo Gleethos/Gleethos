@@ -1,0 +1,142 @@
+<style>
+    :root {
+        --mainColor: #00e968;
+    }
+    .NavBox a {
+        background: linear-gradient(
+                to bottom, var(--mainColor) 0%,
+                var(--mainColor) 100%
+        );
+        background-position: 0 100%;
+        background-repeat: repeat-x;
+        background-size: 4px 2px;
+        color: #000;
+        text-decoration: none;
+        transition: background-size .2s;
+        cursor: pointer;
+        border-radius: 0.1em;
+        padding: 0.25em 0.25em 0.25em 0.25em;
+        margin: 0.25em 0.25em 0.25em 0.25em;
+    }
+    .NavBox a:hover {
+        background-size: 4px 50px;
+        color: cyan;
+        background-color: #99dcff;
+    }
+    .toc_container {
+        display: table;
+        font-size: 95%;
+        margin-bottom: 1em;
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+    }
+    .toc_container li, .toc_container ul, .toc_container ul li {
+        list-style: outside none none !important;
+    }
+    .toc_container a {
+        font-weight: 300;
+        font-size: 1.25em;
+    }
+    .toc_container div {
+        margin-bottom: 1.5em;
+        padding: 1em;
+        border: 1px solid black;
+    }
+</style>
+<div class="NavBox col-sm-12 col-md-12 col-lg-12">
+    <div class="ContentBox">
+        <section class="toc_container">
+            <h2 href="#">Libraries</h2>
+            <div>
+                <a class="navTopic" onclick="loadContent('libraries/neureka')">
+                    Neureka
+                </a>
+				 <a class="navTopic" onclick="loadContent('libraries/theatro')">
+                    Theatro
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="NavBox col-sm-12 col-md-6 col-lg-6">
+    <div class="ContentBox">
+        <section class="toc_container">
+            <h2 href="#">Unity</h2>
+            <div>
+                <a class="navTopic" onclick="loadContent('unity/tower_defense')">
+                    Tower Defense
+                </a>
+                <a class="navTopic" onclick="loadContent('unity/ouroboros')">
+                    Ouroboros
+                </a>
+                <a class="navTopic" onclick="loadContent('unity/DOSS')">
+                    DOSS
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="NavBox col-sm-12 col-md-6 col-lg-6">
+    <div class="ContentBox">
+        <section class="toc_container">
+            <h2 href="#">Web</h2>
+            <div>
+                <a class="navTopic" onclick="loadContent('web/arachni')">
+                    Arachni
+                </a>
+                <a class="navTopic" onclick="loadContent('web/FH_Guide')">
+                    FH Guide
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="NavBox col-sm-12 col-md-6 col-lg-6">
+    <div class="ContentBox">
+        <section class="toc_container">
+            <h2 href="#">Desktop</h2>
+            <div>
+                <a class="navTopic" onclick="loadContent('desktop/photo_database')">
+                    Photo Database / Viewer
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="NavBox col-sm-12 col-md-6 col-lg-6">
+    <div class="ContentBox">
+        <section class="toc_container">
+            <h2 href="#">Blockchain</h2>
+            <div>
+                <a class="navTopic" onclick="loadContent('blockchain/FHVoting')">
+                    FH-Voting
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="NavBox col-sm-12 col-md-6 col-lg-6">
+    <div class="ContentBox">
+        <section class="toc_container">
+            <h2 href="#">Computer Graphics</h2>
+            <div>
+                <a class="navTopic" onclick="loadContent('graphics/fixed_foveated_rendering')">
+                    Fixed Foveated Rendering
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="NavBox col-sm-12 col-md-6 col-lg-6">
+    <div class="ContentBox">
+        <section class="toc_container">
+            <h2 href="#">GPGPU</h2>
+            <div>
+                <a class="navTopic" onclick="loadContent('libraries/neureka')">
+                    Neureka (OpenCL backend)
+                </a>
+            </div>
+        </section>
+    </div>
+</div>

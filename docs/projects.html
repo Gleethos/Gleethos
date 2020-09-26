@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="theme-color" content="#000000">
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Projects </title>
+    <link rel="icon" href="/src/favicon/favicon.ico">
+    <meta name="description" content="a Java tensor library">
+    <meta name="author" content="Daniel Nepp">
+    <meta name="keywords" content="Daniel Nepp, software developer, Deep Learning, AI, Programmer">
+    <!-----------------------------------ROBOTS---------------------------------------------->
+    <meta name="robots" content="all">
+    <meta name="revisit-after" content="30 days">
+    <!-----------------------------------JQUERY---------------------------------------------->
+    <script src="src/js/jquery.min.js"></script>
+    <!-----------------------------------BOOTSTRAP------------------------------------------>
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
+    <script src="src/js/bootstrap.min.js"></script>
+    <script src="src/js/popper.min.js"></script>
+    <!-----------------------------------CUSTOM CSS------------------------------------------>
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-----------------------------------HIGHLIGHT CSS------------------------------------------>
+    <link rel="stylesheet" href="src/css/sunburst.min.css">
+    <script src="src/js/highlight.min.js"></script>
+    <script>
+        let topMode = 'large';
+
+        function updateTopBar( event ) {
+            let top = $('#main_with_parallax').scrollTop();
+            if ( topMode === 'large' && top > 375) {
+                animateTop( 1.0 );
+                topMode = 'small';
+            } else if ( topMode === 'small' && top < 100 ) {
+                animateTop( 0.0 )
+                topMode = 'large';
+            }
+        }
+        function animateTop( modifier ) {
+            let sig = 1-modifier;
+            let newTop = sig*65+5;
+            $('.gaadiexp').animate({top:0}, 500);
+            $('#top_most_nav_bar').animate({top: newTop-70}, 455+modifier*355);
+			$('.TopBarGradient').animate({top: -30*(1-sig)}, 455+modifier*355);
+            $('.side-nav').animate({top:50+((1-sig)*60)}, 130);
+            $('#navbar_menu').animate({top:newTop-10}, 300);
+        }
+    </script>
+</head>
+<body>
+<div id="header">
+    <div id="NetBox" class="MainFrame">
+        <nav class="" id="top_most_nav_bar">
+            <div id="navigation_container" class="">
+                <div style="" class="TopBarGradient DynamicWidth">
+                    <div style="" class="TopBarGradient DynamicWidth">
+						<div style="" class="TopBarGradient DynamicWidth">
+							<div class="pull-right" id="navbar_menu">
+								<ul class="nav navbar-right" id="navbar_list">
+									<li>
+										<a href="index.html">
+											<img src="src/img/icons/house.png">
+											About Me
+										</a>
+									</li>
+									<li>
+										<a href="https://github.com/Gleethos/neureka">
+											<img src="src/img/icons/github-logo.png">
+											Github
+										</a>
+									</li>
+									<li>
+										<a class="ScrollToBottomAction" >
+											<img src="src/img/icons/cogwheel.png">
+                                            Contact
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>	
+                    </div>
+                </div>
+            </div>
+            <div id="navi">
+                <input type="checkbox" name="mobile-nav" id="mobile-nav" class="gaadiexp-check" onchange="this.blur()">
+                <label for="mobile-nav" class="gaadiexp white" tabindex="0"
+                       style="margin-left: 0;"><span></span></label>
+                <div role="navigation" class="header-nav">
+                    <div class="fixed-nav">
+                        <div class="menu">
+                            <ul class="side-nav">
+                                <li>
+                                    <a target="_blank" Style="cursor: pointer; color: cyan;"
+                                       onclick="loadContent('../TOC')">Table Of Content
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://github.com/Gleethos">Github</a>
+                                </li>
+                                <li><a target="_blank" class="ScrollToBottomAction">Contact</a></li>
+                                <script>
+                                    $(document).ready(function() {
+                                        $(".ScrollToBottomAction").click(function() {
+                                            $("html, body").animate({
+                                                scrollTop: $(
+                                                    'html, body').get(0).scrollHeight
+                                            }, 1555);
+                                        });
+                                    });
+                                </script>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!----------------------------------LAYOUT------------------------------------------------->
+        <main id="main_with_parallax" class="Parallax" onscroll="updateTopBar(event);">
+            <div style="left:-10px;" class="ParallaxLayer ParallaxLayer--back ">
+                <div>
+                    <canvas id="nokey" style="background-color: rgba(200, 200, 255, 0.0)">
+                        Your Browser Don't Support Canvas, Please Download Chrome...
+                    </canvas>
+                </div>
+                <script>
+                    var canvas = document.getElementById('nokey'),
+                        can_w = parseInt(canvas.getAttribute('width')),
+                        can_h = parseInt(canvas.getAttribute('height')),
+                        ctx = canvas.getContext('2d');
+
+                    var ball = {
+                            x: 0, y: 0,
+                            vx: 0, vy: 0,
+                            r: 0,
+                            alpha: 1, phase: 0
+                        },
+                        ball_color = {r: 0, g: 120, b: 170},//0,130,165
+                        R = 2,
+                        balls = [],
+                        alpha_f = 0.03,
+                        alpha_phase = 0,
+
+                        // Line
+                        link_line_width = 0.8,
+                        dis_limit = 260,
+                        add_mouse_point = true,
+                        mouse_in = false,
+                        mouse_ball = {
+                            x: 0, y: 0,
+                            vx: 0, vy: 0,
+                            r: 0, type: 'mouse'
+                        };
+
+                    // Random speed
+                    function getRandomSpeed(pos){
+                        var  min = -1, max = 1;
+                        switch(pos){
+                            case 'top':    return [randomNumFrom(min, max), randomNumFrom(0.1, max)];  break;
+                            case 'right':  return [randomNumFrom(min, -0.1), randomNumFrom(min, max)]; break;
+                            case 'bottom': return [randomNumFrom(min, max), randomNumFrom(min, -0.1)]; break;
+                            case 'left':   return [randomNumFrom(0.1, max), randomNumFrom(min, max)];  break;
+                            default: return; break;
+                        }
+                    }
+                    function randomArrayItem(arr){
+                        return arr[Math.floor(Math.random() * arr.length)];
+                    }
+                    function randomNumFrom(min, max){
+                        return Math.random()*(max - min) + min;
+                    }
+                    console.log(randomNumFrom(0, 10));
+                    // Random Ball
+                    function getRandomBall(){
+                        var pos = randomArrayItem(['top', 'right', 'bottom', 'left']);
+                        switch(pos){
+                            case 'top':
+                                return {
+                                    x: randomSidePos(can_w), y: -R,
+                                    vx: getRandomSpeed('top')[0], vy: getRandomSpeed('top')[1],
+                                    r: R,
+                                    alpha: 1,
+                                    phase: randomNumFrom(0, 10)
+                                }
+                                break;
+                            case 'right':
+                                return {
+                                    x: can_w + R, y: randomSidePos(can_h),
+                                    vx: getRandomSpeed('right')[0], vy: getRandomSpeed('right')[1],
+                                    r: R,
+                                    alpha: 1,
+                                    phase: randomNumFrom(0, 10)
+                                }
+                                break;
+                            case 'bottom':
+                                return {
+                                    x: randomSidePos(can_w), y: can_h + R,
+                                    vx: getRandomSpeed('bottom')[0], vy: getRandomSpeed('bottom')[1],
+                                    r: R,
+                                    alpha: 1,
+                                    phase: randomNumFrom(0, 10)
+                                }
+                                break;
+                            case 'left':
+                                return {
+                                    x: -R, y: randomSidePos(can_h),
+                                    vx: getRandomSpeed('left')[0], vy: getRandomSpeed('left')[1],
+                                    r: R,
+                                    alpha: 1,
+                                    phase: randomNumFrom(0, 10)
+                                }
+                                break;
+                        }
+                    }
+                    function randomSidePos(length){
+                        return Math.ceil(Math.random() * length);
+                    }
+
+                    // Draw Ball
+                    function renderBalls(){
+                        Array.prototype.forEach.call(balls, function(b){
+                            if(!b.hasOwnProperty('type')){
+                                ctx.fillStyle = 'rgba('+ball_color.r+','+ball_color.g+','+ball_color.b+','+b.alpha+')';
+                                ctx.beginPath();
+                                ctx.arc(b.x, b.y, R, 0, Math.PI*2, true);
+                                ctx.closePath();
+                                ctx.fill();
+                            }
+                        });
+                    }
+
+                    // Update balls
+                    function updateBalls(){
+                        var new_balls = [];
+                        Array.prototype.forEach.call(balls, function(b){
+                            b.x += b.vx;
+                            b.y += b.vy;
+
+                            if(b.x > -(50) && b.x < (can_w+50) && b.y > -(50) && b.y < (can_h+50)){
+                                new_balls.push(b);
+                            }
+                            // alpha change
+                            b.phase += alpha_f;
+                            b.alpha = Math.abs(Math.cos(b.phase));
+                        });
+                        balls = new_balls.slice(0);
+                    }
+
+                    // Draw lines
+                    function renderLines(){
+                        var fraction, alpha;
+                        for (var i = 0; i < balls.length; i++) {
+                            for (var j = i + 1; j < balls.length; j++) {
+                                fraction = getDisOf(balls[i], balls[j]) / dis_limit;
+                                if(fraction < 1){
+                                    alpha = (1 - fraction).toString();
+                                    ctx.strokeStyle = 'rgba(0,130,165,'+alpha+')';
+                                    ctx.lineWidth = link_line_width;
+                                    ctx.beginPath();
+                                    ctx.moveTo(balls[i].x, balls[i].y);
+                                    ctx.lineTo(balls[j].x, balls[j].y);
+                                    ctx.stroke();
+                                    ctx.closePath();
+                                }
+                            }
+                        }
+                    }
+
+                    // calculate distance between two points
+                    function getDisOf(b1, b2){
+                        var  delta_x = Math.abs(b1.x - b2.x), delta_y = Math.abs(b1.y - b2.y);
+                        return Math.sqrt(delta_x*delta_x + delta_y*delta_y);
+                    }
+
+                    // add balls if there a little balls
+                    function addBallIfy() {
+                        if(balls.length < 35) balls.push(getRandomBall());
+                    }
+
+                    // Render
+                    function render(){
+                        ctx.clearRect(0, 0, can_w, can_h);
+                        renderBalls();
+                        renderLines();
+                        updateBalls();
+                        addBallIfy();
+                        window.requestAnimationFrame(render);
+                    }
+
+                    // Init Balls
+                    function initBalls(num){
+                        for(var i = 1; i <= num; i++){
+                            balls.push({
+                                x: randomSidePos(can_w), y: randomSidePos(can_h),
+                                vx: getRandomSpeed('top')[0], vy: getRandomSpeed('top')[1],
+                                r: R,
+                                alpha: 1,
+                                phase: randomNumFrom(0, 10)
+                            });
+                        }
+                    }
+                    // Init Canvas
+                    function initCanvas(){
+                        canvas.setAttribute('width', window.innerWidth);
+                        canvas.setAttribute('height', window.outerHeight+275);
+
+                        can_w = parseInt(canvas.getAttribute('width'));
+                        can_h = parseInt(canvas.getAttribute('height'));
+                    }
+                    window.addEventListener('resize', function(e){
+                        initCanvas();
+                    });
+
+                    function goMovie(){
+                        initCanvas();
+                        initBalls(30);
+                        window.requestAnimationFrame(render);
+                    }
+                    goMovie();
+
+                    // Mouse effect
+                    let mouseCanvas = document.getElementById('main_with_parallax');
+                    mouseCanvas.addEventListener('mouseenter', function(){
+                        mouse_in = true;
+                        balls.push(mouse_ball);
+                    });
+                    mouseCanvas.addEventListener('mouseleave', function(){
+                        mouse_in = false;
+                        var new_balls = [];
+                        Array.prototype.forEach.call(balls, function(b) {
+                            if(!b.hasOwnProperty('type')) new_balls.push(b);
+                        });
+                        balls = new_balls.slice(0);
+                    });
+                    mouseCanvas.addEventListener('mousemove', function(e){
+                        var e = e; window.event;
+                        mouse_ball.x = e.pageX;
+                        mouse_ball.y = e.pageY+mouseCanvas.scrollTop/2;
+                    });
+                </script>
+            </div>
+            <div class="ParallaxLayer">
+                <div id="main_content_tile" class="BrightCardBox DynamicSideMargin">
+                    <div id="ReturnArrow" onclick="loadContent('../TOC');" style="
+                                                position:relative;
+                                                float:right;
+                                                right:3.25em;
+                                                top:-0em;
+                                                margin:-3em;
+                                                ">
+                        <img id="ArrowIcon">
+                    </div>
+
+                    <div class="MainContentWrapper">
+                        <div class=container-fluid>
+
+                            <h1 id="ContentTitle"></h1>
+
+                            <script>
+                                function capitalize(input) {
+                                    let words = input.replaceAll('_', ' ').split(' ');
+                                    if ( words.length === 1 ) return words[0];
+                                    console.log(words);
+                                    let CapitalizedWords = [];
+                                    words.forEach(word => {
+                                        if ( word.length > 0 ) CapitalizedWords.push(word[0].toUpperCase() + word.slice(1, word.length));
+                                        else CapitalizedWords.push(' ');
+                                    });
+                                    return CapitalizedWords.join(' ');
+                                }
+
+                                function loadContent(target) {
+                                    $('#DynamicContent').hide("fast", function () {
+                                        $('#ContentTitle').hide("fast", function () {
+                                            const split = target.split('/');
+                                            let dir = capitalize(( split[0]==='..' ) ? '' : split[0]+' : ');
+                                            let page = capitalize(split[split.length - 1]);
+
+                                            if (page.indexOf("TOC") !== -1) $("#ReturnArrow").hide("fast");
+                                            else $('#ReturnArrow').show("fast");
+
+                                            page = page
+                                                .replace('TOC', 'Project Portfolio')
+                                                .replaceAll('_', ' ');
+
+                                            $('#ContentTitle').html(
+                                                dir + page.charAt(0).toUpperCase() + page.substring(1)
+                                            ).show("fast");
+                                        });
+                                        $('#DynamicContent').html("").load(
+                                            'src/pages/' + target + '.html',
+                                            function(){
+                                                setTimeout(function () {
+                                                        hljs.initHighlighting.called = false;
+                                                        hljs.initHighlighting();
+                                                        $('#DynamicContent').show("fast");
+                                                    },
+                                                    100
+                                                );
+                                            }
+                                        );
+                                    });
+                                }
+
+                                $(document).ready(function () {
+                                    $("#ReturnArrow").hide().mouseover(function () {
+                                        $(this).animate({right: "4.5em"}, 100);
+                                    }).mouseout(function () {
+                                        $(this).animate({right: "3.25em",}, 400);
+                                    });
+                                    $("#ArrowIcon").attr("src", "src/img/icons/return-arrow.png")
+                                    loadContent('../TOC');
+                                });
+
+                                function switchTab(src, target) {
+                                    var TabBody = $(src.target).parent().parent().find('.TabBody');
+                                    TabBody.children().css("display", "none");
+                                    $(src.target).siblings().removeClass("selected");
+                                    $(src.target).parent().parent().find(target).css("display", "block");
+                                    $(src.target).addClass("selected");
+                                    console.log($(src.target).html());
+                                }
+                            </script>
+
+                            <div id="DynamicContent" class="row">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <section>
+                <ul>
+                    <h4>
+                        Hire Me:
+                    </h4>
+                    <li>
+                        <a>
+                            daniel.nepp@drei.at
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <h4>
+                        Collaborate with Me :
+                    </h4>
+                    <li>
+                        <a>
+                            gleethos@gmx.at
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <h4>
+                        Talk to Me :
+                    </h4>
+                    <li>
+                        <a>
+                            danneydan@gmx.at
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+    </div>
+</div>
+
+<!-----------------------------------VANTA JS------------------------------------------>
+<script src="src/js/three.min.js"></script>
+<script src="src/js/vanta.net.min.js"></script>
+<script>
+    VANTA.NET({
+        el: "#NetBox",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x89a8e1,
+        backgroundColor: 0xffffff
+    });
+
+</script>
+<!-----------------------------------CORRECT VIEWPORT FOR MOBILE------------------------------------------>
+<script>
+</script>
+</body>
+</html>

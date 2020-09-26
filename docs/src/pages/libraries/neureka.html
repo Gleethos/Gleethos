@@ -1,0 +1,203 @@
+
+
+
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="ContentBox">
+        <h2>Neureka?</h2>
+        <p>
+                <a href="https://gleethos.github.io/neureka/index.html">Neureka</a> is a lightweight open source <br>
+                machine learning / deep learning tensor library that I wrote in Java. <br>
+                I chose this language because it is platform independent and also
+                because it is a central language to the entire JVM ecosystem. <br>
+                <img src="src/img/icons/oil-offshore-rig.png">
+                Neureka is 100% platform independent and compatible with any JVM language,
+                such as Groovy, Scala, Clojure or Kotlin.
+                <br>
+                I started working on Neureka because I
+                couldn't find a suitable alternative to the novel ideas
+                expressed in libraries like Torch or PyTorch in the JVM ecosystem. <br>
+                <br>
+        </p>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="ContentBox">
+        <p>
+                The library is completely open-source, free to use,
+                and of course MIT-Licenced. <img src="src/img/icons/open-source.png">
+                In a sense it is more of a personal research project,
+                at least that is how I viewed it when I started working on it. <br>
+                I initially started Neureka to implement ML/DL ideas I encountered <br>
+                from scratch simply because I wanted to understand them. <br>
+                However now it has become a faily usably tool...
+        </p>
+    </div>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-4">
+    <div class="ContentBox">
+        <p>
+            Neureka features an OpenCL accelerated backend in order to
+            not tie it to any hardware vendor... <br><img src="src/img/icons/video-card.png">
+            I learned a great deal about how the magic of Deep-Learning
+            really works under the hood when writing OpenCL kernel code.<br>
+
+        </p>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-3">
+    <div class="ContentBox">
+        <p>
+                I put a lot of effort in making the backends of Neureka
+                as extensible as possible. <br><img style="max-width: 4em;"src="src/img/icons/puzzle.png">
+                Implementing new backends for faster execution is therefore easily possible.
+        </p>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="TabWrapper">
+        <div class="TabHead">
+            <button onclick="switchTab(event, '.tensorTab')" class="selected">Tensors</button>
+            <button onclick="switchTab(event, '.simpleNNTab')">Simple Neural Network</button>
+        </div>
+        <div class="TabBody">
+            <div class="tensorTab">
+                <pre><code class="hljs java">
+    Tsr t = new Tsr([2, 4],[
+            1, 2, 3, 4,
+            9, 8, 6, 5
+    ])
+                </code></pre>
+            </div>
+            <div class="simpleNNTab" style="display:none">
+                <pre><code class="hljs java">
+    static void runOn(Device device)
+    {
+        Tsr X = new Tsr( // input data: 5 vectors in binary form
+            [5, 3, 1],
+            [
+                0, 0, 1,
+                1, 1, 0,
+                1, 0, 1,
+                0, 1, 1,
+                1, 1, 1
+            ]
+        ).add(device)
+
+        Tsr y = new Tsr( [5, 1, 1],[0,1,1,1,0] ).add(device) // output values (labels)
+
+        Tsr input = X
+        Tsr weights1 = new Tsr(
+                        [1, input.shape()[1], 4],
+                        [
+                            4.17022005e-01, 7.20324493e-01, 1.14374817e-04, 3.02332573e-01,
+                            1.46755891e-01, 9.23385948e-02, 1.86260211e-01, 3.45560727e-01,
+                            3.96767474e-01, 5.38816734e-01, 4.19194514e-01, 6.85219500e-01
+                        ]).add(device)
+
+        Tsr weights2 = new Tsr([1, 1, 4], [0.20445225, 0.87811744, 0.02738759, 0.67046751]).add(device)
+        Tsr output = new Tsr(y.shape(), [0.0, 0.0, 0.0, 0.0, 0.0]).add(device)
+        Tsr layer1 = new Tsr()
+
+        // iterate 500 times
+        for( i in 0..500) {
+            feedforward(weights1, weights2, input, output, layer1)
+            backprop(weights1, weights2, input, output, layer1, y)
+        }
+    }
+
+    static Tsr sigmoid(Tsr x) { return new Tsr(x, "sig(I[0])") }
+
+    static Tsr sigmoid_derivative(Tsr x) { return x * (-x + 1) }
+
+    static void feedforward(Tsr weights1, Tsr weights2, Tsr input, Tsr output, Tsr layer1) {
+        Tsr in0 = new Tsr([input, weights1], "i0xi1")
+        layer1[] = sigmoid(in0)
+        Tsr in1 = new Tsr([layer1, weights2], "i0xi1")
+        output[] = sigmoid(in1)
+    }
+
+    static void backprop(Tsr weights1, Tsr weights2, Tsr input, Tsr output, Tsr layer1, Tsr y) {
+    // application of the chain rule to find derivative of the loss function with respect to weights2 and weights1
+        Tsr delta = (y - output)*2
+        Tsr derivative = delta*2*sigmoid_derivative(output)
+        Tsr d_weights2 = new Tsr( [layer1, (derivative)], "i0xi1" )
+        Tsr d_weights1 = new Tsr(
+            [input, (new Tsr([derivative, weights2], "i0xi1") * sigmoid_derivative(layer1))],
+            "i0xi1"
+        )
+        // update the weights with the derivative (slope) of the loss function
+        weights1[] = weights1 + d_weights1
+        weights2[] = weights2 + d_weights2
+    }
+                </code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="ContentBox">
+        <h2>Isn't Python enough?</h2>
+        <p>
+            Python is a great language for rappid prototyping, however
+            when it comes to deployment it is not my preferred choice. <br>
+        </p>
+    </div>
+</div>
+<div class="col-sm-12 col-md-3">
+    <img style="width:100%;" src="src/img/archimedes.jpg">
+</div>
+<div class="col-sm-12 col-md-9">
+    <div class="ContentBox">
+        <p>
+            Larger projects become hard to debug and hard to read simply because<br>
+            Python is weakly typed. <br>
+            Of course popular ML frameworks could be used with C++ instead,
+            however this language carries with it a lot of safety issues that
+            makes producing stable code harder than it should be. <br>
+            For me the middle ground between these two extremes has always been the JVM.<br>
+        </p>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12">
+    <div class="ContentBox">
+        <h2>What about Performance?</h2>
+        <p>
+            Python currently provides the most advanced
+            environments and ecosystems for machine learning and
+            data science. This is despite the fact that it is
+            an interpreted language and thereby substantially slower than
+            statically compiled languages and also allot
+            slower than dynamically compiled and optimized bytecode
+            executed during JVM runtime (JIT - compilation).
+            <img src="https://img.icons8.com/metro/50/000000/speed.png">
+            Popular frameworks like PyTorch and Tensorflow
+            compensate this deficit by utilizing C++ and Cuda internally.</br>
+            Neureka seeks to achieve similar performance with a more balanced
+            approach, where number crunching is offloaded to OpenCl whenever
+            possible or otherwise JVM's advanced concurrency and JIT
+            runtime optimizations come into play.
+            (Which should not be underestimated)</br></br>
+        </p>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12">
+    <div class="ContentBox">
+        <p>
+            Currently, Neureka is held as lightweight
+            as possible! Operations are therefore implemented as
+            generalized, modular and concise as possible, meaning that
+            performance wise Neureka still needs to mature
+            and would greatly appreciate improvement
+            proposals.</br></br>
+            Besides that Neureka is also greatly held back
+            by JVM's lack of allowing for more memory localized types.
+            As soon as the upcoming Project-Valhalla is released
+            the introduction of inline/value types would allow
+            for type generification without performance costs.
+        </p>
+    </div>
+</div>
+

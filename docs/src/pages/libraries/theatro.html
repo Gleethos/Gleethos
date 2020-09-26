@@ -1,0 +1,115 @@
+
+<div class="col-sm 12 col-md-12 col-lg-12">
+    <div class="ContentBox">
+        <h3>
+           A plotting library :
+        </h3>
+        <p>
+            Theatro is small work in progress plotting library intended to
+            to support the most basic types of plots in an intuitive way. <br>
+            <br>
+            It is my second library besides Neureka, a tensor library.<br>
+            I plan on integrating this library tightly with Neureka to allow
+            for more use cases and to act as a light weight visual support tool. <br>
+        </p>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="ContentBox">
+        <p>
+            Currently there are only 2 types of plots supported, <br>
+            2D-grid plots and node-graph plotting. <br>
+            <br>
+            <img  src="src/img/theatro/sinus-plot.png" >
+            <br>
+            This graph is a simple plot of points
+            created from a sinus function. <br>
+            The following code produced this grid plot : <br>
+        </p>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="TabWrapper">
+        <div class="TabHead">
+            <button onclick="switchTab(event, '.groovyTab')" class="selected">Groovy</button>
+            <button onclick="switchTab(event, '.javaTab')">Java</button>
+        </div>
+        <div class="TabBody">
+            <div class="groovyTab">
+                <pre><code class="hljs java">
+                Gridded g = new Gridded()
+                g.setData(
+                    [
+                        (0..100).collect { (it - 50) / 10 } as double[],
+                        (0..100).collect {Math.sin((it - 50)/10)} as double[]
+                    ] as double[][]
+                )
+                </code></pre>
+            </div>
+            <div class="javaTab" style="display:none">
+                <pre><code class="hljs java">
+                Gridded g = new Gridded();
+                g.setData(
+                    new double[][]{
+                        new double[]{...},
+                        new double[]{...}
+                    }
+                )
+                </code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="ContentBox">
+        <p>
+            The following example shows the plotting of a
+            node-graph given a simple nested list/array structure... <br>
+            The nodes can be dragged and dropped easily and the entire surface is navigable.
+            <img src="src/img/theatro/node-graph.png">
+            <br>
+            This graph has been created by the following code : <br>
+        </p>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="TabWrapper">
+        <div class="TabHead">
+            <button onclick="switchTab(event, '.groovyTab')" class="selected">Groovy</button>
+            <button onclick="switchTab(event, '.javaTab')">Java</button>
+        </div>
+        <div class="TabBody">
+            <div class="groovyTab">
+                <pre><code class="hljs java">
+                NodeWindow gb = new NodeWindow([
+                    ["1", "2", "3"],
+                    ["6", "4"],
+                    ["8"]
+                ])
+                </code></pre>
+            </div>
+            <div class="javaTab" style="display:none">
+                <pre><code class="hljs java">
+                NodeWindow gb = new NodeWindow(
+                    new String[]{
+                        new String[]{"1", "2", "3"},
+                        new String[]{"6", "4"},
+                        new String[]{"8"}
+                    }
+                )
+                </code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="ContentBox">
+        <p>
+            The library is in an extreme early phase of development.<br>
+            However it already contains an extremely powerful base-layer
+            used for extension and implementation of plots. <br>
+            Drawing plots is as simple as passing a plotting lambda
+            to a navigable surface backed by Swing.
+        </p>
+    </div>
+</div>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="theme-color" content="#000000">
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Hi, I'm Daniel! </title>
+    <link rel="icon" href="/src/favicon/favicon.ico">
+    <meta name="description" content="a Java tensor library">
+    <meta name="author" content="Daniel Nepp">
+    <meta name="keywords" content=
+            "software developer, programmer, Machine Learning, AI, Deep Learning, OpenCl, PyTorch, Java, Tensorflow"
+    >
+    <!-----------------------------------ROBOTS---------------------------------------------->
+    <meta name="robots" content="all">
+    <meta name="revisit-after" content="30 days">
+    <!-----------------------------------JQUERY---------------------------------------------->
+    <script src="src/js/jquery.min.js"></script>
+    <!-----------------------------------BOOTSTRAP------------------------------------------>
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
+    <script src="src/js/bootstrap.min.js"></script>
+    <script src="src/js/popper.min.js"></script>
+    <!-----------------------------------CUSTOM CSS------------------------------------------>
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-----------------------------------HIGHLIGHT CSS------------------------------------------>
+    <link rel="stylesheet" href="src/css/sunburst.min.css">
+    <script src="src/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        let topMode = 'large';
+
+        function updateTopBar( event ) {
+            let top = $('#main_with_parallax').scrollTop();
+            if ( topMode === 'large' && top > 375 ) {
+                animateTop( 1.0 );
+                topMode = 'small';
+            } else if ( topMode === 'small' && top < 100 ) {
+                animateTop( 0.0 )
+                topMode = 'large';
+            }
+        }
+        function animateTop( modifier ) {
+            let sig = 1-modifier;
+            let newTop = sig*65+5;
+            $('.gaadiexp').animate({top:0}, 500);
+            $('#top_most_nav_bar').animate({top: newTop-70}, 455+modifier*355);
+			$('.TopBarGradient').animate({top: -30*(1-sig)}, 455+modifier*355);
+            $('.side-nav').animate({top:50+((1-sig)*60)}, 130);
+            $('#navbar_menu').animate({top:newTop-10}, 300);
+        }
+    </script>
+</head>
+<body>
+<div id="header" class="">
+    <div id="BirdBox" class="MainFrame"
+         style="background-image: url('https://images.pexels.com/photos/1287142/pexels-photo-1287142.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');">
+        <nav class="FloatsUp" id="top_most_nav_bar">
+            <div id="navigation_container" class="">
+                <div style="" class="TopBarGradient DynamicWidth">
+                    <div style="" class="TopBarGradient DynamicWidth">
+						<div style="" class="TopBarGradient DynamicWidth">
+							<div class="DynamicWidth" id="navbar_menu">
+
+								<ul class="nav navbar-right" id="navbar_list">
+									<li>
+										<a href="projects.html">
+											<img src="src/img/icons/graph-nodes.png">
+											Projects
+										</a>
+									</li>
+									<li>
+										<a href="https://github.com/Gleethos">
+											<img src="src/img/icons/github-logo.png">
+											Github
+										</a>
+									</li>
+									<li>
+										<a target="_blank" class="ScrollToBottomAction">
+											<img src="src/img/icons/cogwheel.png">
+                                            Contact
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+            <div id="navi">
+                <input type="checkbox" name="mobile-nav" id="mobile-nav" class="gaadiexp-check" onchange="this.blur()">
+                <label for="mobile-nav" class="gaadiexp white" tabindex="0"
+                       style="margin-left: 0;"><span></span></label>
+                <div role="navigation" class="header-nav">
+                    <div class="fixed-nav">
+                        <div class="menu">
+                            <ul class="side-nav">
+                                <li><a target="_blank" href="projects.html">Projects</a></li>
+                                <li><a target="_blank" href="https://github.com/Gleethos">Github</a></li>
+                                <li><a target="_blank" class="ScrollToBottomAction">Contact</a></li>
+                                <script>
+                                    $(document).ready(function() {
+                                        $(".ScrollToBottomAction").click(function() {
+                                            $("html, body").animate({
+                                                scrollTop: $(
+                                                    'html, body').get(0).scrollHeight
+                                            }, 1555);
+                                        });
+                                    });
+                                </script>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!----------------------------------LAYOUT------------------------------------------------->
+        <main id="main_with_parallax" class="Parallax" onscroll="updateTopBar(event);">
+            <div style="left:-10px;" class="ParallaxLayer ParallaxLayer--back ">
+                <div>
+                    <img style="width: 100%" src="src/img/parallax/julia.png">
+                </div>
+            </div>
+            <div class="ParallaxLayer">
+                <div id="main_content_tile" class="BrightCardBox DynamicSideMargin">
+                    <div class="MainContentWrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <h1>Hi I'm Daniel!</h1>
+                                </div>
+                                <div class="col-sm-12 col-md-5">
+                                    <p>
+                                        <b>
+                                            I'm a Computer-Science student and software developer.
+                                        </b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="MainContentWrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="ContentBox">
+                                    <p>
+                                        <strong>Hello and welcome to my GitHub profile page! 👋😄 <br></strong>
+
+                                    </p>
+                                    <br><br>
+                                    <ul>
+                                        <li>
+                                            🔬 I’m a computer science student at the University of Applied Sciences Technikum in Vienna!
+                                        </li>
+                                        <li>
+                                            🌱 I’m currently learning all kinds things, but mainly I focus on learning how machines learn in a deep way... 😄
+                                        </li>
+                                        <li>
+                                            👯 ...and I’m looking to collaborate on anything AI - related!
+                                        </li>
+                                        <li>
+                                            🤔 ...and I’m also looking for help with publishing on maven!
+                                        </li>
+                                        <li>
+                                            💬 Ask me about my cat!
+                                        </li>
+                                        <li>
+                                            📫 How to reach me: gleethos@gmx.at
+                                        </li>
+                                        <li>
+                                            ⚡ Fun fact: I like programming! ^^
+                                        </li>
+                                    </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="MainContentWrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <style>
+                                    .ProjectButtonEffect {
+                                        border-color: #3498db;
+                                        color: #fff;
+                                        box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+                                        -webkit-transition: all 150ms ease-in-out;
+                                        transition: all 150ms ease-in-out;
+                                    }
+                                    .ProjectButtonEffect:hover {
+                                        box-shadow: 0 0 10px 0 #00ddcb inset, 0 0 10px 4px #3498db;
+                                    }
+
+                                    .ProjectButton {
+                                        box-sizing: border-box;
+                                        -webkit-appearance: none;
+                                        -moz-appearance: none;
+                                        appearance: none;
+                                        background-color: transparent;
+                                        border: 2px solid #0073d2;
+                                        border-radius: 0.95em;
+                                        color: rgb(155, 225, 255);
+                                        cursor: pointer;
+                                        display: -webkit-box;
+                                        display: -webkit-flex;
+                                        display: -ms-flexbox;
+                                        display: flex;
+                                        -webkit-align-self: center;
+                                        -ms-flex-item-align: center;
+                                        align-self: center;
+                                        font-size: 1rem;
+                                        font-weight: 400;
+                                        line-height: 1;
+                                        margin: 20px;
+                                        padding: 1.2em 2.8em;
+                                        text-decoration: none;
+                                        text-align: center;
+                                        text-transform: uppercase;
+                                        font-family: 'Montserrat', sans-serif;
+                                        font-weight: 700;
+                                    }
+                                    .ProjectButton:hover, .ProjectButton:focus {
+                                        color: #000000;
+                                        outline: 0;
+                                        text-decoration: none;
+                                    }
+                                    .ProjectButtonContainer {
+                                        text-align: center;
+                                        display: grid;
+                                        display: flex;
+                                        justify-content: center;
+                                        margin: 0.25em 1.25em 0.25em 1.25em;
+                                        padding: 0.25em 1em 0.25em 1em;
+                                        -webkit-box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.75);
+                                        -moz-box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.75);
+                                        box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.75);
+                                        border-radius: 0.5em;
+                                    }
+                                </style>
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="ProjectButtonContainer">
+                                    <div class="DynamicWidth ProjectButtonContainer">
+                                        <div class="DynamicWidth ProjectButtonContainer">
+                                            <a
+                                                    class = "ProjectButton ProjectButtonEffect"
+                                                    href = "projects.html"
+                                            >
+                                                Project Portfolio
+                                            </a>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-0 col-md-2">
+                                </div>
+                                <div class="col-sm-0 col-md-2">
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                </div>
+                                <div class="col-sm 12 col-md-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer id="Foot">
+            <section>
+                <ul>
+                    <h4>
+                        Hire Me:
+                    </h4>
+                    <li>
+                        <a>
+                            daniel.nepp@drei.at
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <h4>
+                        Collaborate with Me :
+                    </h4>
+                    <li>
+                        <a>
+                            gleethos@gmx.at
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <h4>
+                        Talk to Me :
+                    </h4>
+                    <li>
+                        <a>
+                            danneydan@gmx.at
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+    </div>
+</div>
+
+<!-----------------------------------VANTA JS------------------------------------------>
+<script src="src/js/p5.min.js"></script>
+<script src="src/js/vanta.topology.min.js"></script>
+<script>
+	// script: src="src/js/three.min.js"
+	// script: src="src/js/vanta.birds.min.js"
+    //VANTA.BIRDS({
+    //    el: "#BirdBox",
+    //    color1: 0xd00ff,
+    //    colorMode: "lerp",
+    //    birdSize: 0.70,
+    //    wingSpan: 17.00,
+    //    speedLimit: 4.00,
+    //    separation: 21.00,
+    //    alignment: 16.00,
+    //    cohesion: 25.00,
+    //    backgroundAlpha: 0.00
+    //})
+    //VANTA.BIRDS({
+    //    el: "#BirdBox",
+    //    backgroundColor: 0x0,
+    //    color1: 0x59cc65,
+    //    color2: 0xa6fc,
+    //    colorMode: "lerp",
+    //    birdSize: 0.70,
+    //    wingSpan: 17.00,
+    //    speedLimit: 4.00,
+    //    separation: 21.00,
+    //    alignment: 16.00,
+    //    cohesion: 25.00,
+    //    backgroundAlpha: 0.00
+    //});
+    VANTA.TOPOLOGY({
+        el: "#BirdBox",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0xa0ddff,
+        backgroundColor: 0x729ebe
+    });
+</script>
+<!-----------------------------------CORRECT VIEWPORT FOR MOBILE------------------------------------------>
+<script>
+</script>
+</body>
+</html>
