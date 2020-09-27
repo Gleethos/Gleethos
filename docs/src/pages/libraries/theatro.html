@@ -37,24 +37,24 @@
         <div class="TabBody">
             <div class="groovyTab">
                 <pre><code class="hljs java">
-                Gridded g = new Gridded()
-                g.setData(
-                    [
-                        (0..100).collect { (it - 50) / 10 } as double[],
-                        (0..100).collect {Math.sin((it - 50)/10)} as double[]
-                    ] as double[][]
-                )
+    Gridded g = new Gridded()
+    g.setData(
+        [
+            (0..100).collect { (it - 50) / 10 } as double[],
+            (0..100).collect {Math.sin((it - 50)/10)} as double[]
+        ] as double[][]
+    )
                 </code></pre>
             </div>
             <div class="javaTab" style="display:none">
                 <pre><code class="hljs java">
-                Gridded g = new Gridded();
-                g.setData(
-                    new double[][]{
-                        new double[]{...},
-                        new double[]{...}
-                    }
-                )
+    Gridded g = new Gridded();
+    g.setData(
+        new double[][]{
+            new double[]{...},
+            new double[]{...}
+        }
+    )
                 </code></pre>
             </div>
         </div>
@@ -81,22 +81,22 @@
         <div class="TabBody">
             <div class="groovyTab">
                 <pre><code class="hljs java">
-                NodeWindow gb = new NodeWindow([
-                    ["1", "2", "3"],
-                    ["6", "4"],
-                    ["8"]
-                ])
+    NodeWindow gb = new NodeWindow([
+        ["1", "2", "3"],
+        ["6", "4"],
+        ["8"]
+    ])
                 </code></pre>
             </div>
             <div class="javaTab" style="display:none">
                 <pre><code class="hljs java">
-                NodeWindow gb = new NodeWindow(
-                    new String[]{
-                        new String[]{"1", "2", "3"},
-                        new String[]{"6", "4"},
-                        new String[]{"8"}
-                    }
-                )
+    NodeWindow gb = new NodeWindow(
+        new String[]{
+            new String[]{"1", "2", "3"},
+            new String[]{"6", "4"},
+            new String[]{"8"}
+        }
+    )
                 </code></pre>
             </div>
         </div>
