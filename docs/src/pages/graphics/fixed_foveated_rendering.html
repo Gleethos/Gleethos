@@ -2,30 +2,34 @@
 <div class="col-sm 12 col-md-12">
     <div class="ContentBox">
         <h3>
+            Fovea - Fixed Foveated Rendering
         </h3>
         <p>
+            This project represents my first encounter with
+            the OpenGL API using C++. <br>
+            I started the project as part of a computer graphics
+            class in the 4th semester of my undergrad studies at the
+            U.A.S Technikum. <br>
+            Me and my team partner wanted to do something
+            novel reflecting a current trend in computer graphics. <br>
+            <br>
+            Therefore our choice fell on Foveated Rendering. <br>
+            This rendering technique can get extremely complex when
+            implementing itn for ful deployment, however
+            we simply wanted to pull off a MVP for demonstration and
+            learning how to program shader kernels. <br>
+            <br>
+            We used a technique found in an interesting paper. <br>
+            The concept we implemented takes the given vertecies in a
+            scene and transforms them to a polar coordinate system which
+            is then also modified by applying the log function to the radia of the
+            vertecies... <br>
+            After rastrization we then simply apply the inverse
+            (transform them back to the cartesian system) to the pixel coordinates and
+            interpolate the pixels onto a new texture buffer. <br>
+            <br>
+            Traditionally this technique goes hand in hand with eye tracking, however for
+            obvious reasons we did not further explore such features.
         </p>
     </div>
 </div>
-
-<div class="col-sm 12 col-md-6">
-    <div class="ContentBox">
-        <p>
-
-        </p>
-    </div>
-</div>
-
-<div class="col-sm-12 col-md-6">
-                <pre><code class="hljs java">
-
-                </code></pre>
-</div>
-<div class="col-sm 12 col-md-12">
-    <div class="ContentBox">
-        <p>
-
-        </p>
-    </div>
-</div>
-
