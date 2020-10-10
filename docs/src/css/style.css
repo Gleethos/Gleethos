@@ -722,12 +722,6 @@ footer ul {
     transform: rotate(-225deg);
 }
 
-#mobile-nav:focus + .gaadiexp,
-.gaadiexp:focus,
-.gaadiexp:hover {
-    background: rgba(0, 136, 204, 0.9);
-}
-
 .gaadiexp-check:checked + .gaadiexp {
     width: 100%;
     border-radius: 0px 0px 6em 0em;
@@ -745,6 +739,12 @@ footer ul {
 #mobile-nav {
     left: -9999px;
     position: fixed;
+}
+
+#mobile-nav:focus + .gaadiexp,
+.gaadiexp:focus,
+.gaadiexp:hover {
+    background: rgba(0, 136, 204, 0.9);
 }
 
 .header-nav ul li a:active,
@@ -809,9 +809,6 @@ footer ul {
     z-index: -1;
 }
 
-.header-nav ul {
-    background-color: black;
-}
 
 .gaadiexp-check:checked ~ .header-nav ul {
     background-color: rgba(0, 100, 200, 0.3);
