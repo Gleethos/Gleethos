@@ -1,17 +1,13 @@
-# Hi there 👋😄 I'm Gleethos, a.k.a. Daniel! #
+# Hi 👋😄 I'm Gleethos, a.k.a. Daniel #
 
-Welcome to my GitHub profile readme!
+Thank you for visiting my GitHub profile readme!
 
-- :microscope: I’m a software engineer with a passion for machine learning!
+- :microscope: I’m a software engineer with a passion for machine learning.
 - 🌱 I’m currently learning all kinds things, but mainly I focus on learning how machines learn in a deep way... 😄
-- 👯 ...and I’m looking to collaborate on anything AI - related! 
-- 💬 Ask me about my cat!
+- I look forward to collaborate on anything OSS and AI - related! 
+- 💬 Ask me about my cat
 - 📫 How to reach me: gleethos@gmx.at
 - ⚡ Fun fact: I like programming! ^^
-
----
-
-[Check out my portfolio website!]( https://gleethos.github.io/Gleethos/ )
 
 ---
 
@@ -24,3 +20,8 @@ Welcome to my GitHub profile readme!
 # Noteworthy Projects #
 
 - I work on a tensor library called [neureka](https://github.com/Gleethos/neureka) ! 🔭
+- I am the author of the [swing-tree library](https://github.com/globaltcad/swing-tree).
+
+---
+
+[Check out my portfolio page.]( https://gleethos.github.io/Gleethos/ )
